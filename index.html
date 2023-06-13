@@ -52,24 +52,23 @@
     </div>
 
     <script>
-        function enviarSolicitud() {
-            alert("se envio");
-            const url = 'http://localhost:5000/endpoint';
-            const data = { key: 'value' };
+       function enviarSolicitud() {
+           const url = 'http://localhost:5000/endpoint';
+           const data = { key: 'value' };
 
-            axios.post(url, data, {
-                headers: { 'Content-Type': 'application/json' }
-            })
-                .then(response => {
-                    alert("se enviook");
-                    console.log(response.data);
-                })
-                .catch(error => {
-                    alert("se envioERROR");
-                    console.error(error);
-                    alert(error);
-                });
-        }
+  fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}
     </script>
 </body>
 </html>
