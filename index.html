@@ -53,6 +53,7 @@
 
     <script>
         function enviarSolicitud() {
+            alert("se envio");
             const url = 'http://localhost:5000/endpoint';
             const data = { key: 'value' };
 
@@ -60,9 +61,11 @@
                 headers: { 'Content-Type': 'application/json' }
             })
                 .then(response => {
+                    alert("se enviook");
                     console.log(response.data);
                 })
                 .catch(error => {
+                    alert("se envioERROR");
                     console.error(error);
                 });
         }
